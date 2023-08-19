@@ -7,7 +7,7 @@
       name="viewport"
       content=" height = device-height, width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no, target-densitydpi = device-dpi "
     />
-    <title>TtMaB</title>
+    <title>TestWeb</title>
     <link id="main-style" rel="stylesheet" href="External/style.css" />
   </head>
 
@@ -69,13 +69,13 @@
         var buildUrl = "Build";
       var loaderUrl = buildUrl +  "/WebGL.loader.js";
       var config = {
-          dataUrl: buildUrl + "/WebGL.data",
-          frameworkUrl: buildUrl + "/WebGL.framework.js",
-          codeUrl: buildUrl + "/WebGL.wasm",
+          dataUrl: buildUrl + "/WebGL.data.gz",
+          frameworkUrl: buildUrl + "/WebGL.framework.js.gz",
+          codeUrl: buildUrl + "/WebGL.wasm.gz",
           streamingAssetsUrl: "StreamingAssets",
-          companyName: "Tuidum",
-          productName: "TtMaB",
-          productVersion: "1.09",
+          companyName: "DefaultCompany",
+          productName: "TestWeb",
+          productVersion: "0.1",
       };
 
         var container = document.querySelector("#unityContainer");
