@@ -307,7 +307,7 @@ function createUnityInstance(t, r, d) {
             userAgent: o.trim(),
             browser: e || "Unknown browser",
             browserVersion: t || "Unknown version",
-            mobile: /Mobile|Android|iP(ad|hone)/.test(navigator.appVersion),
+            // mobile: /Mobile|Android|iP(ad|hone)/.test(navigator.appVersion),
             os: r || "Unknown OS",
             osVersion: u || "Unknown OS Version",
             gpu: n || "Unknown GPU",
