@@ -23,6 +23,44 @@
             <!-- <div id="unity-build-title">TtMaB</div> -->
          </div>
       </div>
+	  <script>
+        // Función para redirigir los mensajes de registro que contienen "warning" como advertencias
+        function redirectConsole() {
+            var originalConsoleLog = console.log;
+			var originalConsoleWarn = console.warn;
+
+			
+			console.warn = function(message) {
+                if (message.includes("parámetros"))
+				{
+					console.log(message);
+				}
+				else 
+				{
+					// Mantiene los otros mensajes de registro intactos
+                    originalConsoleWarn.apply(console, arguments); 
+                }
+            };
+			
+            console.log = function(message) {
+                if (message.includes("WARNING:")) 
+				{
+					// Convierte los mensajes con "warning" en advertencias
+                    console.warn(message); 
+                }
+				else 
+				{
+					// Mantiene los otros mensajes de registro intactos
+                    originalConsoleLog.apply(console, arguments); 
+                }
+            };
+			
+			
+        }
+
+        // Llama a la función para redirigir la consola
+        redirectConsole();
+      </script>
       <script>
          ;(function () {
             var src = '//cdn.jsdelivr.net/npm/eruda';
@@ -120,32 +158,6 @@
             };
             document.body.appendChild(script);
           
-		  function _JS_Log_Dump(ptr, type) {
-            var str = UTF8ToString(ptr);
-            if (typeof dump == "function") {
-                dump(str);
-            }
-            switch (type) {
-                case 0:
-                case 1:
-                case 4:
-                    // Registra los mensajes como errores
-                    console.error("Mi versión personalizada de: " + str);
-                    return;
-                case 2:
-                    // Registra los mensajes como advertencias
-                    console.warn("Mi versión personalizada de: " + str);
-                    return;
-                case 3:
-                case 5:
-                    // Registra los mensajes como mensajes informativos
-                    console.log("Mi versión personalizada de: " + str);
-                    return;
-                default:
-                    console.error("Unknown console message type!");
-                    console.error("Mi versión personalizada de: " + str);
-            }
-        }
       </script>
    </body>
 </html>
