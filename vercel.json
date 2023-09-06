@@ -1,18 +1,26 @@
 {
-  "rewrites": [
+  "headers": [
     {
       "source": "/(.+\\.wasm\\.br)",
-      "destination": "/$1",
-      "headers": {
-        "Content-Encoding": "br"
-      }
+      "headers": [
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/wasm"
+        }
+      ]
     },
     {
       "source": "/(.+\\.br)",
-      "destination": "/$1",
-      "headers": {
-        "Content-Encoding": "br"
-      }
+      "headers": [
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        }
+      ]
     }
   ]
 }
