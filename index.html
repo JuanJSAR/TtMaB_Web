@@ -121,5 +121,33 @@
             document.body.appendChild(script);
           
       </script>
+	  <script>
+        function _JS_Log_Dump(ptr, type) {
+            var str = UTF8ToString(ptr);
+            if (typeof dump == "function") {
+                dump(str);
+            }
+            switch (type) {
+                case 0:
+                case 1:
+                case 4:
+                    // Registra los mensajes como errores
+                    console.error("Mi versión personalizada de: " + str);
+                    return;
+                case 2:
+                    // Registra los mensajes como advertencias
+                    console.warn("Mi versión personalizada de: " + str);
+                    return;
+                case 3:
+                case 5:
+                    // Registra los mensajes como mensajes informativos
+                    console.log("Mi versión personalizada de: " + str);
+                    return;
+                default:
+                    console.error("Unknown console message type!");
+                    console.error("Mi versión personalizada de: " + str);
+            }
+        }
+    </script>
    </body>
 </html>
