@@ -1,0 +1,3 @@
+# Habilitar la compresión Brotli para los archivos con extensión .br
+*.br
+  Content-Encoding: br
