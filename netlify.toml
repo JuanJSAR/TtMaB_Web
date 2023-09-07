@@ -1,3 +1,6 @@
+[functions]
+    directory = "functions/"
+	
 [[headers]]
 for = "/*.br"
   [headers.values]
