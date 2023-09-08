@@ -19,7 +19,8 @@ exports.handler = async function (event, context) {
     // Devuelve el archivo binario directamente
     return {
       statusCode: 200,
-      body: data, // Aquí no es necesario JSON.stringify
+      body: data.toString('base64'), // Aquí no es necesario JSON.stringify
+      isBase64Encoded: true,
       headers: {
         'Content-Type': response.headers.get('Content-Type'), // Utiliza el Content-Type original del archivo
         'Content-Disposition': `attachment; filename="AssetBundle "`,
