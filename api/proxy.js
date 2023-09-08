@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 module.exports = async (req, res) => {
   try {
 	  
-	const requestBodyText = req.body; // Tomar el cuerpo de la solicitud como texto
+	const requestBodyText = JSON.stringify(req.body); // Tomar el cuerpo de la solicitud como texto
     console.log('Cuerpo de la solicitud como texto:', requestBodyText);
 
     const { url } = JSON.parse(req.body);
