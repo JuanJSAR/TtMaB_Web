@@ -17,8 +17,8 @@ module.exports = async (req, res) => {
     const data = await response.buffer();
 
 	 // Configura los encabezados de respuesta
-    // res.setHeader('Content-Type', response.headers.get('Content-Type')); // Utiliza el Content-Type original del archivo
-	res.setHeader('Content-Type', 'application/octet-stream'); // Establece el tipo de contenido como application/octet-stream
+    res.setHeader('Content-Type', response.headers.get('Content-Type')); // Utiliza el Content-Type original del archivo
+	// res.setHeader('Content-Type', 'application/octet-stream'); // Establece el tipo de contenido como application/octet-stream
     res.setHeader('Content-Disposition', 'attachment; filename="AssetBundle"');
 
 	console.log('pass');
