@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 module.exports = async (req, res) => {
   try {
-    const { url } = JSON.parse(req.body);
+    const { url } = req.body;
 	console.log('Cuerpo de la solicitud como texto:', url);
 
     if (!url || !url.startsWith('https://drive.google.com/')) {
