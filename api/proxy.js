@@ -1,8 +1,10 @@
 const fetch = require('node-fetch');
 
-exports.handler = async function (event, context) {
+module.exports = async (req, res) => {
   try {
-    const { url } = JSON.parse(event.body);
+    const {
+      url
+    } = req.body;
 
     if (!url || !url.startsWith('https://drive.google.com/')) {
       throw new Error('URL de Google Drive no válida');
@@ -15,21 +17,14 @@ exports.handler = async function (event, context) {
     }
 
     const data = await response.buffer();
-    
+
     // Devuelve el archivo binario directamente
-    return {
-      statusCode: 200,
-      body: data.toString('base64'), // Aquí no es necesario JSON.stringify
-      isBase64Encoded: true,
-      headers: {
-        'Content-Type': response.headers.get('Content-Type'), // Utiliza el Content-Type original del archivo
-        'Content-Disposition': `attachment; filename="AssetBundle "`,
-      },
-    };
+    res.status(200).send(data.toString('base64')); // Aquí no es necesario JSON.stringify
+    res.setHeader('Content-Type', response.headers.get('Content-Type')); // Utiliza el Content-Type original del archivo
+    res.setHeader('Content-Disposition', 'attachment; filename="AssetBundle"');
   } catch (error) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: error.message }),
-    };
+    res.status(500).json({
+      error: error.message
+    });
   }
 };
