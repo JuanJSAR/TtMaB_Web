@@ -1,7 +1,7 @@
 {
   "functions": {
-    "api": {
-      "src": "functions/proxy.js"
+    "api/*.js": {
+      "runtime": "node14"
     }
   },
   "headers": [
