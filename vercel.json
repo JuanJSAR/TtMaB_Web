@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api": {
+      "src": "functions/proxy.js"
+    }
+  },
   "headers": [
     {
       "source": "/(.+\\.wasm\\.br)",
@@ -22,10 +27,5 @@
         }
       ]
     }
-  ],
-  "functions": {
-    "api": {
-      "src": "functions/proxy.js"
-    }
-  }
+  ]
 }
