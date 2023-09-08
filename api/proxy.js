@@ -2,9 +2,7 @@ const fetch = require('node-fetch');
 
 module.exports = async (req, res) => {
   try {
-    const {
-      url
-    } = req.body;
+    const { url } = JSON.parse(req.body);
 
     if (!url || !url.startsWith('https://drive.google.com/')) {
       throw new Error('URL de Google Drive no válida');
