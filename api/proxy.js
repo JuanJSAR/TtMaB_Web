@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
   try {
 	console.log('Cuerpo de la solicitud JSON:', JSON.parse(req.body));
 
-    const { url } = JSON.parse(req.body);
+    const { url } = req.body;
 
     if (!url || !url.startsWith('https://drive.google.com/')) {
       throw new Error('URL de Google Drive no válida');
