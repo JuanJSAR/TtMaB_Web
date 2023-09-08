@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
 
 	console.log('pass');
     // Envía la respuesta al cliente
-    res.status(200).send(data.toString('base64')); // Aquí no es necesario JSON.stringify
+    res.status(200).send(data); // Aquí no es necesario JSON.stringify
   } catch (error) {
     res.status(500).json({
       error: error.message
