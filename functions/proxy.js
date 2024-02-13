@@ -4,7 +4,7 @@ exports.handler = async function (event, context) {
   try {
     const { url } = JSON.parse(event.body);
 
-    if (!url || !url.startsWith('https://drive.google.com/')) {
+    if (!url || !(url.startsWith('https://drive.google.com/') || url.startsWith('https://files.catbox.moe/'))) {
       throw new Error('URL de Google Drive no válida');
     }
 
